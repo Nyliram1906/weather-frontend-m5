@@ -1,0 +1,15 @@
+// abstracts
+@use './abstracts/variables';
+
+// base
+@use './base/base';
+@use './base/body';
+
+// layout
+@use './layout/footer';
+@use './layout/layout';
+
+// components
+@use './components/card';
+@use './components/navbar';
+@use './components/detalle';

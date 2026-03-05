@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as v;
+
+@mixin flex-layout-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin footer-nav {
+  @include flex-layout-center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid v.$ash-gray;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+@mixin card-icon($size: 3rem, $color: v.$weather-gold) {
+  font-size: $size;
+  color: $color;
+  display: block;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+@mixin weather-card-theme($bg: v.$weather-blue, $border-color: v.$ash-gray) {
+  background-color: $bg;
+  border: 1px solid $border-color;
+  color: v.$mist-white;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(v.$weather-gold, 0.2);
+  }
+}

@@ -1,0 +1,35 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.card {
+  &__icon {
+    font-size: 40px;
+    color: variables.$weather-gold;
+    background-color: variables.$weather-navy;
+  }
+}
+
+// Clase para las tarjetas de clima
+.weather-card {
+  @include mixins.weather-card-theme(
+    variables.$weather-blue,
+    variables.$ash-gray
+  );
+
+  .card-title {
+    color: variables.$weather-gold;
+    font-size: variables.$font-lg;
+  }
+
+  .card-text {
+    color: variables.$mist-white;
+  }
+
+  .card-link {
+    color: variables.$weather-bus;
+
+    &:hover {
+      color: variables.$weather-gold;
+    }
+  }
+}

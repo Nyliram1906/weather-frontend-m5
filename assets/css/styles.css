@@ -1,0 +1,152 @@
+/* Estilos generales */
+body {
+  background: linear-gradient(135deg, #a8b8c7 0%, #8b9dc3 50%, #6b7c93 100%);
+  min-height: 100vh;
+  color: #1a1f2e;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Títulos principales */
+h1 {
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);    
+}
+
+/* Iconos de clima */
+i {
+  font-size: 40px;
+}
+
+/* Tarjetas interactivas */
+.weather-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Enlaces de las tarjetas */
+.card-link {
+  cursor: pointer;
+  color: #6b7c93;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: #5d9cec;
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+@use '../abstracts/variables';
+
+.card {
+  background-color: variables.$weather-blue;
+  border: 1px solid variables.$ash-gray;
+  color: variables.$mist-white;
+
+  .card-title {
+    color: variables.$weather-gold;
+  }
+
+  .list-group-item {
+    background-color: variables.$weather-blue;
+    color: variables.$mist-white;
+    border-color: variables.$ash-gray;
+
+    i {
+      color: variables.$weather-gold;
+    }
+  }
+
+  .text-body-secondary {
+    color: variables.$ash-gray !important;
+  }
+}
+
+#resumen p {
+  color: variables.$mist-white;
+}

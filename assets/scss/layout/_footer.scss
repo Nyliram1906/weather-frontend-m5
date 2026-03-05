@@ -1,0 +1,28 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+footer {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+
+  //Clases nav y nav-link para el footer
+  nav ul {
+    @include mixins.footer-nav;
+  }
+
+  .nav-link {
+    color: variables.$mist-white;
+
+    &:hover {
+      color: variables.$weather-gold;
+    }
+  }
+
+  p {
+    color: variables.$ash-gray;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

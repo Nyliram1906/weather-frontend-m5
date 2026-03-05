@@ -1,0 +1,24 @@
+@use '../abstracts/variables';
+
+.navbar {
+  background-color: rgba(0, 13, 38, 0.85) !important;
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid variables.$weather-gold;
+
+  .navbar-brand {
+    color: variables.$weather-gold;
+    font-weight: bold;
+
+    &:hover {
+      color: variables.$weather-bus;
+    }
+  }
+
+  .nav-link {
+    color: variables.$mist-white;
+
+    &:hover, &.active {
+      color: variables.$weather-gold;
+    }
+  }
+}
