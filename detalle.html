@@ -1,121 +1,137 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>El Tiempo en Scadrial - Detalle</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Tiempo en Scadrial - Detalle</title>
 
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Bootstrap JS -->
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    ></script>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
-    <!-- Mi CSS -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <!-- Mi JS (detalle) -->
-    <script defer type="module" src="./assets/js/detalle.js"></script>
-  </head>
+  <!-- Bootstrap JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="./index.html">El Tiempo en Scadrial</a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Inicio</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <!-- Mi CSS -->
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <!-- Mi JS (detalle) -->
+  <script defer type="module" src="./assets/js/detalle.js"></script>
+</head>
 
-    <!-- Contenido principal -->
-    <main class="container my-4">
-
-      <!-- Tarjeta principal del lugar -->
-      <section>
-        <div id="lugar">
-          <!-- Renderizado dinámico por WeatherApp.cargarDetalleLugar() -->
-        </div>
-      </section>
-
-      <!-- Alertas climáticas -->
-      <section class="my-4">
-        <h3>⚠️ Alertas del Imperio Final</h3>
-        <div id="alertas">
-          <!-- Renderizado dinámico por WeatherApp.renderizarAlertas() -->
-        </div>
-      </section>
-
-      <!-- Pronóstico semanal -->
-      <section class="my-4">
-        <h3>Pronóstico semanal</h3>
-        <ul id="pronosticoSemanal" class="list-group">
-          <!-- Renderizado dinámico por WeatherApp.renderizarDetalle() -->
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">El Tiempo en Scadrial</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./detalle.html">Detalle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./acerca.html">Acerca de nosotros</a>
+          </li>
         </ul>
-      </section>
+      </div>
+    </div>
+  </nav>
 
-      <!-- Estadísticas -->
-      <section class="my-4">
-        <h3>Estadísticas de la semana</h3>
-        <table class="table table-bordered text-center">
-          <tbody>
-            <tr>
-              <th>Temperatura mínima</th>
-              <th>Temperatura máxima</th>
-              <th>Temperatura promedio</th>
-            </tr>
-            <tr>
-              <td id="minTemp">-</td>
-              <td id="maxTemp">-</td>
-              <td id="avTemp">-</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+  <!-- Contenido principal -->
+  <main class="container my-4">
 
-      <!-- Resumen y tabla de estados -->
-      <section class="my-4">
-        <div id="resumen">
-          <!-- Renderizado dinámico -->
-        </div>
+    <!-- Tarjeta principal del lugar -->
+    <section>
+      <div id="lugar">
+        <!-- Renderizado dinámico por WeatherApp.cargarDetalleLugar() -->
+      </div>
+    </section>
 
-        <table class="table table-bordered text-center mt-3">
-          <thead>
-            <tr id="titulosEstadisticas">
-              <!-- Renderizado dinámico -->
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="filaEstadistica">
-              <!-- Renderizado dinámico -->
-            </tr>
-          </tbody>
-        </table>
-      </section>
+    <!-- Alertas climáticas -->
+    <section class="my-4">
+      <h3>⚠️ Alertas del Imperio Final</h3>
+      <div id="alertas">
+        <!-- Renderizado dinámico por WeatherApp.renderizarAlertas() -->
+      </div>
+    </section>
 
-    </main>
+    <!-- Pronóstico semanal -->
+    <section class="my-4">
+      <h3>Pronóstico semanal</h3>
+      <ul id="pronosticoSemanal" class="list-group">
+        <!-- Renderizado dinámico por WeatherApp.renderizarDetalle() -->
+      </ul>
+    </section>
 
-    <!-- Footer -->
-    <footer class="container py-3 my-4">
-      <p class="text-center text-body-secondary">
-        © 2025 Marilyn Villalobos Rojas - Mistborn Edition
-      </p>
-    </footer>
-  </body>
+    <!-- Estadísticas -->
+    <section class="my-4">
+      <h3>Estadísticas de la semana</h3>
+      <table class="table table-bordered text-center">
+        <tbody>
+          <tr>
+            <th>Temperatura mínima</th>
+            <th>Temperatura máxima</th>
+            <th>Temperatura promedio</th>
+          </tr>
+          <tr>
+            <td id="minTemp">-</td>
+            <td id="maxTemp">-</td>
+            <td id="avTemp">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Resumen y tabla de estados -->
+    <section class="my-4">
+      <div id="resumen">
+        <!-- Renderizado dinámico -->
+      </div>
+
+      <table class="table table-bordered text-center mt-3">
+        <thead>
+          <tr id="titulosEstadisticas">
+            <!-- Renderizado dinámico -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="filaEstadistica">
+            <!-- Renderizado dinámico -->
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="container py-3 my-4">
+    <nav>
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link px-2 text-body-secondary">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a href="./detalle.html" class="nav-link px-2 text-body-secondary">Detalle</a>
+        </li>
+        <li class="nav-item">
+          <a href="./acerca.html" class="nav-link px-2 text-body-secondary">Acerca de nosotros</a>
+        </li>
+      </ul>
+    </nav>
+    <p class="text-center text-body-secondary">
+      © 2025 Marilyn Villalobos Rojas - Mistborn Edition
+    </p>
+  </footer>
+</body>
+
 </html>

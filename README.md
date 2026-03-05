@@ -72,7 +72,7 @@ weather-frontend/
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/Nyliram1906/weather-frontend-m5
+   git clone https://github.com/Nyliram1906/weather-frontend-m4.git
    cd weather-frontend-m4
    ```
 
@@ -81,6 +81,58 @@ weather-frontend/
 3. Navega a `index.html`. La aplicación cargará automáticamente los datos desde la API.
 
 > ⚠️ **Nota:** no abrir los archivos directamente desde el sistema de archivos (`file://`), ya que los módulos ES6 requieren un servidor HTTP para funcionar correctamente.
+
+---
+
+## 🌐 API de clima utilizada
+
+**Nombre:** Open-Meteo  
+**URL base:** `https://api.open-meteo.com/v1/forecast`  
+**Documentación oficial:** [https://open-meteo.com/en/docs](https://open-meteo.com/en/docs)  
+**Autenticación:** no requiere API key, es completamente gratuita.
+
+### Parámetros utilizados en cada petición
+
+```
+latitude={lat}&longitude={lon}
+&daily=weathercode,temperature_2m_max,temperature_2m_min
+&current_weather=true
+&timezone=auto
+```
+
+La API responde con un objeto JSON que incluye:
+- `current_weather.temperature` → temperatura actual
+- `current_weather.weathercode` → código WMO del estado actual
+- `daily.time` → array con las fechas de los próximos 7 días
+- `daily.temperature_2m_max` → temperaturas máximas diarias
+- `daily.temperature_2m_min` → temperaturas mínimas diarias
+- `daily.weathercode` → códigos WMO por día
+
+Los códigos WMO se traducen al clima temático de Scadrial mediante el método `traducirEstado(codigo)`.
+
+---
+
+## 📊 Cálculo de estadísticas (versión Módulo 5)
+
+En esta versión las estadísticas se calculan a partir de los datos reales obtenidos desde la API, a diferencia del Módulo 4 donde los datos eran estáticos.
+
+El método `calcularEstadisticas(pronosticoSemanal = [])` recibe el array de 7 días procesado desde la respuesta JSON y calcula:
+
+- **Temperatura mínima semanal:** `Math.min()` aplicado sobre todas las temperaturas mínimas diarias.
+- **Temperatura máxima semanal:** `Math.max()` aplicado sobre todas las temperaturas máximas diarias.
+- **Temperatura promedio semanal:** suma de las máximas diarias dividida por la cantidad de días, usando `.reduce()`.
+- **Conteo de estados:** objeto que acumula cuántos días tuvo cada tipo de clima, construido con `.forEach()`.
+- **Estado predominante:** el tipo de clima con más días en la semana, obtenido con `Object.entries().reduce()`.
+
+```javascript
+// Ejemplo simplificado del cálculo
+const maximas = pronosticoSemanal.map(d => d.max);
+const minimas = pronosticoSemanal.map(d => d.min);
+
+const maximaSemanal   = Math.max(...maximas);
+const minimaSemanal   = Math.min(...minimas);
+const promedioSemanal = (maximas.reduce((a, b) => a + b, 0) / maximas.length).toFixed(2);
+```
 
 ---
 

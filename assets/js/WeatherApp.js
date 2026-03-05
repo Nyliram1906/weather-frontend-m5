@@ -6,7 +6,7 @@ class WeatherApp {
   }
 
   // Método para obtener coordenadas de cada ciudad
-  getCoordenadas(nombreLugar) {
+  getCoordenadas(nombreLugar = 'Luthadel') {
     const coordenadas = {
       'Luthadel':             { lat: -33.45, lon: -70.67 },
       'Fadrex City':          { lat: -33.03, lon: -71.63 },
@@ -23,7 +23,7 @@ class WeatherApp {
   }
 
   // Método para traducir código WMO a estado de clima Scadrial
-  traducirEstado(codigo) {
+  traducirEstado(codigo = 0) {
     if (codigo === 0)  return 'Neblina matutina';
     if (codigo <= 3)   return 'Ceniza ligera';
     if (codigo <= 48)  return 'Niebla densa';
@@ -44,7 +44,7 @@ class WeatherApp {
     return await respuesta.json();
   }
 
-  // Método para cargar todos los lugares en el Home (secuencial para evitar 429)
+  // Método para cargar todos los lugares en el Home 
   async cargarLugares(nombresLugares) {
     const lugaresContainer = document.getElementById('lugares');
     lugaresContainer.innerHTML = '<p class="text-center col-12">Cargando datos del clima...</p>';
@@ -69,7 +69,7 @@ class WeatherApp {
           })),
         });
 
-        // Pausa entre peticiones para evitar error 429
+        // Pausa entre peticiones para evitar error de límite de API
         await new Promise(resolve => setTimeout(resolve, 300));
       }
 
@@ -236,7 +236,7 @@ class WeatherApp {
   }
 
   // Método para calcular estadísticas semanales
-  calcularEstadisticas(pronosticoSemanal) {
+  calcularEstadisticas(pronosticoSemanal = []) {
     const maximas = pronosticoSemanal.map(d => d.max);
     const minimas = pronosticoSemanal.map(d => d.min);
 
